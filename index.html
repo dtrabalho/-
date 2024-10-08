@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Senha com Imagens</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="password-container">
+        <h1>Digite a senha:</h1>
+        <input type="password" id="password" placeholder="Senha">
+        <button class="modern-button" onclick="verificarSenha()">Enviar</button>
+        <p id="message"></p>
+    </div>
+
+    <div id="image-container" class="hidden">
+        <h2 class="center-text">O que é isso?</h2>
+        <div class="image-gallery">
+            <img src="https://via.placeholder.com/200x250/0000FF/808080" alt="Imagem 1" draggable="true" ondragstart="startDrag(event)" id="img1" onclick="expandImage(this, 'Imagem 1')">
+            <img src="https://via.placeholder.com/200x250/FF0000/FFFFFF" alt="Imagem 2" draggable="true" ondragstart="startDrag(event)" id="img2" onclick="expandImage(this, 'Imagem 2')">
+            <img src="https://via.placeholder.com/200x250/00FF00/000000" alt="Imagem 3" draggable="true" ondragstart="startDrag(event)" id="img3" onclick="expandImage(this, 'Imagem 3')">
+        </div>
+        <button class="modern-button" onclick="toggleNotepad()">Abrir Bloco de Notas</button> <!-- Botão para abrir o bloco de notas -->
+        <div id="notepad-container" class="notepad-container"></div> <!-- Gaveta para as anotações -->
+    </div>
+
+    <!-- Bloco de Notas -->
+    <div id="notepad" class="notepad hidden">
+        <h3>Adicionar Anotação</h3>
+        <input type="text" id="note-title" placeholder="Título da Anotação">
+        <textarea id="note" rows="5" placeholder="Digite suas anotações aqui..."></textarea>
+        <button class="modern-button" onclick="saveNote()">Salvar Anotações</button>
+        <button class="modern-button" onclick="toggleNotepad()">Fechar</button>
+    </div>
+
+    <!-- Modal para a imagem ampliada -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <div class="modal-image-container">
+            <img class="modal-content" id="modalImage">
+            <p id="imageName" class="image-name"></p> <!-- Nome da imagem -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
