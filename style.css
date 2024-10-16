@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #BF0426; /* Fundo azul mais escuro */
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+h1, h2 {
+    color: #0E3D59;
+}
+
+input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #BF0426;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #8C030E;
+}
+
+.hidden {
+    display: none;
+}
+
+#errorMessage {
+    color: red;
+    margin-top: 10px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.image-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.image-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Lightbox Modal CSS */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+#lightboxContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 80%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#lightboxImage {
+    max-width: 50%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+#lightboxText {
+    flex: 1;
+    margin-right: 20px;
+}
+
+#lightboxTitle {
+    font-size: 24px;
+    color: #123C73;
+    margin-bottom: 10px;
+}
+
+#lightboxDescription {
+    font-size: 16px;
+    color: #333;
+}
+
+#closeLightbox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+/* Estilos anteriores permanecem os mesmos */
+
+/* Bloco de Notas */
+#notesContainer {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#notesContainer h2 {
+    color: #0E3D59;
+    margin-bottom: 10px;
+}
+
+#noteArea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    resize: vertical;
+}
+
+#noteArea:focus {
+    outline: none;
+    border-color: #123C73;
+}
+
+#saveNoteButton {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #BF0426;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#saveNoteButton:hover {
+    background-color: #8C030E;
+}
+
+/* Área de Anotações Salvas */
+#savedNotesArea {
+    margin-top: 30px;
+}
+
+#notesList {
+    position: relative;
+    height: 400px;
+    border: 2px dashed #ccc;
+    background-color: #081826;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.note {
+    position: absolute;
+    background-color: #8C030E;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: move;
+    min-width: 150px;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+
+.note h3 {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.note p {
+    font-size: 14px;
+    margin: 0;
+}
+/* Ajuste geral do container */
+#passwordContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 90%; /* Usa 90% da largura da tela */
+    max-width: 600px; /* Limite para telas maiores */
+    padding: 20px;
+    margin: 50px auto; /* Centraliza */
+    background-color: #1c3d5a; /* Azul escuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Esconde qualquer transbordo */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #0b2740; /* Fundo azul escuro */
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+#content {
+    display: none;
+    width: 100%; /* Garante que o conteúdo ocupe a largura toda */
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#imageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    overflow: auto;
+    padding: 10px;
+}
+
+/* Imagem centralizada e texto */
+.expanded-image-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    background-color: #1c3d5a;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: auto;
+}
+
+/* Responsividade no mobile */
+@media (max-width: 768px) {
+    #passwordContainer {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .expanded-image-container {
+        width: 95%;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .note {
+        width: 90%;
+    }
+}
+
+/* Estilos das anotações */
+.note {
+    position: absolute;
+    width: 200px;
+    padding: 10px;
+    background-color: #123C73;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    cursor: move;
+}
+
+.editable-title {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
