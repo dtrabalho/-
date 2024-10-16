@@ -3,43 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificação de Senha com Imagens</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>???</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" id="password-container">
-        <h1>Digite a senha:</h1>
-        <input type="password" id="password" placeholder="Senha">
-        <button class="modern-button" onclick="verificarSenha()">Enviar</button>
-        <p id="message"></p>
-    </div>
+    <div class="container">
+        <h1>Insira a Senha</h1>
+        <input type="password" id="passwordInput" placeholder="Digite a senha">
+        <button id="submitButton">Entrar</button>
+        <p id="errorMessage" class="hidden">Senha incorreta.</p>
 
-    <div id="image-container" class="hidden">
-        <h2 class="center-text">O que é isso?</h2>
-        <div class="image-gallery">
-            <img src="https://via.placeholder.com/200x250/0000FF/808080" alt="Imagem 1" draggable="true" ondragstart="startDrag(event)" id="img1" onclick="expandImage(this, 'Imagem 1')">
-            <img src="https://via.placeholder.com/200x250/FF0000/FFFFFF" alt="Imagem 2" draggable="true" ondragstart="startDrag(event)" id="img2" onclick="expandImage(this, 'Imagem 2')">
-            <img src="https://via.placeholder.com/200x250/00FF00/000000" alt="Imagem 3" draggable="true" ondragstart="startDrag(event)" id="img3" onclick="expandImage(this, 'Imagem 3')">
+        <div id="imageGallery" class="hidden">
+            <h2>O que é isso?</h2>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/300" alt="Imagem 1" class="gallery-image" data-title="Imagem 1" data-description="Descrição da imagem 1.">
+                <img src="https://via.placeholder.com/300" alt="Imagem 2" class="gallery-image" data-title="Imagem 2" data-description="Descrição da imagem 2.">
+                <img src="https://via.placeholder.com/300" alt="Imagem 3" class="gallery-image" data-title="Imagem 3" data-description="Descrição da imagem 3.">
+            </div>
         </div>
-        <button class="modern-button" onclick="toggleNotepad()">Abrir Bloco de Notas</button> <!-- Botão para abrir o bloco de notas -->
-        <div id="notepad-container" class="notepad-container"></div> <!-- Gaveta para as anotações -->
+
+        <!-- Bloco de Notas -->
+        <div id="notesContainer" class="hidden">
+            <h2>Bloco de Notas</h2>
+            <textarea id="noteArea" placeholder="Escreva suas anotações aqui..."></textarea>
+            <button id="saveNoteButton">Salvar Anotação</button>
+        </div>
+
+        <!-- Área de Anotações Salvas -->
+        <div id="savedNotesArea" class="hidden">
+            <h2>Anotações Salvas</h2>
+            <div id="notesList"></div> <!-- Área para as pastas arrastáveis -->
+        </div>
     </div>
 
-    <!-- Bloco de Notas -->
-    <div id="notepad" class="notepad hidden">
-        <h3>Adicionar Anotação</h3>
-        <input type="text" id="note-title" placeholder="Título da Anotação">
-        <textarea id="note" rows="5" placeholder="Digite suas anotações aqui..."></textarea>
-        <button class="modern-button" onclick="saveNote()">Salvar Anotações</button>
-        <button class="modern-button" onclick="toggleNotepad()">Fechar</button>
-    </div>
-
-    <!-- Modal para a imagem ampliada -->
-    <div id="modal" class="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
-        <div class="modal-image-container">
-            <img class="modal-content" id="modalImage">
-            <p id="imageName" class="image-name"></p> <!-- Nome da imagem -->
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="hidden">
+        <span id="closeLightbox">&times;</span>
+        <div id="lightboxContent">
+            <div id="lightboxText">
+                <h2 id="lightboxTitle"></h2>
+                <p id="lightboxDescription"></p>
+            </div>
+            <img id="lightboxImage" src="" alt="Imagem Ampliada">
         </div>
     </div>
 
